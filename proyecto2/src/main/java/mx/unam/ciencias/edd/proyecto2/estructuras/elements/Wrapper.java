@@ -1,4 +1,4 @@
-package mx.unam.ciencias.edd.proyecto2.graficador.elements;
+package mx.unam.ciencias.edd.proyecto2.estructuras.elements;
 
 /**
  * A class to wrap all the document into the svg tags, contains a method to add

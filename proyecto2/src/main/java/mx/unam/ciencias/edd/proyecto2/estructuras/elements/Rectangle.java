@@ -29,7 +29,7 @@ public class Rectangle extends Element {
 	 *  @param x the position on the x-axis.
 	 *  @param y the position on the y-axis.
 	 */
-	public Rectangle(int height, int width) {
+	public Rectangle(int height, int width, int x, int y) {
 		super("rect", true);
 
 		this.setAttribute("height", height);

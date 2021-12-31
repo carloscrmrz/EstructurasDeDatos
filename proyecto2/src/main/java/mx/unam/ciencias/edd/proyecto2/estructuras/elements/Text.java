@@ -1,9 +1,19 @@
 package mx.unam.ciencias.edd.proyecto2.estructuras.elements;
 
-public class Text {
+public class Text extends Element {
 
 	// Initializes the text element.
 	public Text() { super("text", false); }
+
+	/** 
+	 * Initializes the text element with a given string.
+	 * To be used in a {@Link: Group} tag.
+	 * @param text the text to be used.
+	 */
+	public Text(String text) {
+		super("text", false);
+		this.setText(text);
+	}
 
 	/**
 	 * Initializes the text element with a given string.
