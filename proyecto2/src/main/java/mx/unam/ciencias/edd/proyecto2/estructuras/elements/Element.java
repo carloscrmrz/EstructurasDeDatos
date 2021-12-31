@@ -34,7 +34,6 @@ public abstract class Element {
 	 * Sets or replaces attributes for our elements' tags. Receives the attribute name
 	 * and it's value and depending if the attribute already exists in our tag it gets
 	 * updated or added to the element svg object.
-	 *
 	 * @param attr the attribute name.
 	 * @param val  the attribute's value.
 	 */
@@ -47,7 +46,7 @@ public abstract class Element {
 		boolean hasAttr = this.content.toString().split(regex).length > 1;
 
 		if ( hasAttr ) {
-			this.content = new StringBuilder(this.content.toString().replaceFirst(regex, attrWithValue);
+			this.content = new StringBuilder(this.content.toString().replaceFirst(regex, attrWithValue));
 		} else {       // We insert at the end of the tags' attributes list.
 			int offset = this.selfClose ? this.content.length() - 2 : this.content.indexOf(">");
 			this.content.insert(offset, attrWithValue);
@@ -55,15 +54,36 @@ public abstract class Element {
 	}
 
 	/**
-	 * Sets of replace the content of the element tag. Receives a String to set the
+	 * Sets or replaces the content of the element tag. Receives a String to set the
 	 * inner content of a non self-closing tag.
 	 * @param inner the content to be set for the element.
 	 */
 	public void setInnerContent(String inner) {
 		if ( selfClose ) 
 			throw new IllegalArgumentException();
-		this.content.insert(this.content.indexOf(">") + 1, this.content.indexOf("</"), inner);
+		this.content.insert(this.content.indexOf(">") + 1, inner);
 		this.innerContent = inner;
+	}
+
+	/** 
+	 * Adds an element to the content of the element tag. Receives an instance of
+	 * {@Link: Element} to add the element to the inner content of a non self-closing
+	 * tag.
+	 * @param inner the content to be set for the element.
+	 */
+	public void setInnerContent(Element inner) {
+		if ( selfClose ) 
+			throw new IllegalArgumentException();
+		this.content.insert(this.content.indexOf(">") + 1, "\n\t" + inner.toString());
+		this.innerContent += inner.toString();
+	}
+
+	/** 
+	 * Returns a string representation of the SVG element.
+	 * @return a string representation of the SVG element.
+	 */
+	public String toString() {
+		return this.content.toString();
 	}
 }
 
