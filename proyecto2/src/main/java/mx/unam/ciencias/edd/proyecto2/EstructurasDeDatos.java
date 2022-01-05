@@ -1,4 +1,4 @@
-package mx.unam.ciencias.edd.proyecto2.estructuras;
+package mx.unam.ciencias.edd.proyecto2;
 
 /**
  * Enumeracion para Estructuras de Datos.
@@ -18,6 +18,8 @@ public enum EstructurasDeDatos {
 	ARBOL_BINARIO_ORDENADO,
 	/* Arbol Rojinegro */
 	ARBOL_ROJINEGRO,
+	/* Arbol AVL */
+	ARBOL_AVL,
 	/* Grafica */
 	GRAFICA,
 	/* Monticulo Minimo */ 
@@ -48,6 +50,15 @@ public enum EstructurasDeDatos {
 				break;
 			case ARBOL_ROJINEGRO:
 				s = "Arbol Rojinegro";
+				break;
+			case ARBOL_AVL:
+				s = "Arbol AVL";
+				break;
+			case GRAFICA: 
+				s = "Grafica";
+				break;
+			case MONTICULO_MINIMO:
+				s = "Monticulo Minimo";
 				break;
 			default:
 				s = "Sin Seleccionar";
